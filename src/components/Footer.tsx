@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Heart } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, InstagramIcon } from "./SocialIcons";
 
 const navLinks = [
@@ -70,12 +70,9 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-8 pt-8 border-t border-[#22396F]/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-8 pt-8 border-t border-[#22396F]/20 flex flex-col sm:flex-row items-center justify-center gap-3">
           <p className="text-[#FCF1D0]/30 text-xs">
             © {new Date().getFullYear()} Ahmad Fauzhan. All rights reserved.
-          </p>
-          <p className="text-[#FCF1D0]/30 text-xs flex items-center gap-1">
-            Built with <Heart size={10} className="text-[#FCF1D0]/50" fill="currentColor" /> using Next.js & Tailwind CSS
           </p>
         </div>
       </div>
