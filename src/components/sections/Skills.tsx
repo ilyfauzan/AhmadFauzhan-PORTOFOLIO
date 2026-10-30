@@ -10,22 +10,22 @@ interface Skill {
   level: number;
 }
 
-const frontendSkills: Skill[] = [
-  { name: "React / Next.js", icon: "⚛️", level: 92 },
-  { name: "TypeScript", icon: "🔷", level: 88 },
-  { name: "Tailwind CSS", icon: "🎨", level: 95 },
-  { name: "Framer Motion", icon: "✨", level: 80 },
-  { name: "HTML5 / CSS3", icon: "🌐", level: 97 },
-  { name: "Vue.js", icon: "💚", level: 72 },
+const programmingSkills: Skill[] = [
+  { name: "HTML & CSS", icon: "🌐", level: 95 },
+  { name: "JavaScript", icon: "💛", level: 90 },
+  { name: "Python", icon: "🐍", level: 85 },
+  { name: "Java", icon: "☕", level: 80 },
+  { name: "MySQL", icon: "🐬", level: 82 },
+  { name: "Git & Version Control", icon: "🐙", level: 88 },
 ];
 
-const backendSkills: Skill[] = [
-  { name: "Node.js / Express", icon: "🟢", level: 85 },
-  { name: "PostgreSQL", icon: "🐘", level: 80 },
-  { name: "MongoDB", icon: "🍃", level: 82 },
-  { name: "REST API / GraphQL", icon: "🔗", level: 87 },
-  { name: "Docker", icon: "🐳", level: 70 },
-  { name: "AWS / Cloud", icon: "☁️", level: 65 },
+const officeTools: Skill[] = [
+  { name: "VS Code", icon: "💻", level: 95 },
+  { name: "Microsoft Word", icon: "📝", level: 92 },
+  { name: "Microsoft Excel", icon: "📊", level: 88 },
+  { name: "Microsoft PowerPoint", icon: "📽️", level: 90 },
+  { name: "Google Docs & Sheets", icon: "📑", level: 92 },
+  { name: "Google Slides", icon: "🖼️", level: 90 },
 ];
 
 function SkillBar({ skill, delay }: { skill: Skill; delay: number }) {
@@ -59,14 +59,18 @@ function SkillBar({ skill, delay }: { skill: Skill; delay: number }) {
 }
 
 const tools = [
+  { name: "Git", icon: "🐙" },
   { name: "VS Code", icon: "💻" },
-  { name: "Figma", icon: "🎭" },
-  { name: "Git / GitHub", icon: "🔧" },
-  { name: "Postman", icon: "📬" },
-  { name: "Vercel", icon: "▲" },
-  { name: "Linux", icon: "🐧" },
-  { name: "Jest", icon: "🃏" },
-  { name: "Prisma", icon: "🔺" },
+  { name: "MySQL", icon: "🐬" },
+  { name: "JavaScript", icon: "💛" },
+  { name: "Python", icon: "🐍" },
+  { name: "Java", icon: "☕" },
+  { name: "MS Word", icon: "📝" },
+  { name: "MS Excel", icon: "📊" },
+  { name: "MS PowerPoint", icon: "📽️" },
+  { name: "Google Docs", icon: "📄" },
+  { name: "Google Sheets", icon: "📈" },
+  { name: "Google Slides", icon: "📑" },
 ];
 
 export default function Skills() {
@@ -96,18 +100,18 @@ export default function Skills() {
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Frontend */}
+          {/* Programming & Tech */}
           <div>
             <Reveal delay={0.1}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rounded-lg bg-[#22396F]/30 border border-[#22396F]/50 flex items-center justify-center text-sm">
-                  🖥️
+                  💻
                 </div>
-                <h3 className="text-lg font-semibold text-[#FCF1D0]">Frontend Development</h3>
+                <h3 className="text-lg font-semibold text-[#FCF1D0]">Programming &amp; Tech</h3>
               </div>
             </Reveal>
             <div className="space-y-3">
-              {frontendSkills.map((skill, i) => (
+              {programmingSkills.map((skill, i) => (
                 <Reveal key={skill.name} delay={0.1 + i * 0.05}>
                   <SkillBar skill={skill} delay={i * 100} />
                 </Reveal>
@@ -115,18 +119,18 @@ export default function Skills() {
             </div>
           </div>
 
-          {/* Backend */}
+          {/* Tools & Productivity */}
           <div>
             <Reveal delay={0.2}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rounded-lg bg-[#22396F]/30 border border-[#22396F]/50 flex items-center justify-center text-sm">
                   ⚙️
                 </div>
-                <h3 className="text-lg font-semibold text-[#FCF1D0]">Backend Development</h3>
+                <h3 className="text-lg font-semibold text-[#FCF1D0]">Tools &amp; Productivity</h3>
               </div>
             </Reveal>
             <div className="space-y-3">
-              {backendSkills.map((skill, i) => (
+              {officeTools.map((skill, i) => (
                 <Reveal key={skill.name} delay={0.2 + i * 0.05}>
                   <SkillBar skill={skill} delay={i * 100} />
                 </Reveal>

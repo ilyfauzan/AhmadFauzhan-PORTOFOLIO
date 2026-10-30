@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, Heart } from "lucide-react";
-import { GithubIcon, LinkedinIcon, InstagramIcon } from "./SocialIcons";
+import { GithubIcon, InstagramIcon } from "./SocialIcons";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -12,10 +12,9 @@ const navLinks = [
 ];
 
 const socials = [
-  { icon: GithubIcon, href: "https://github.com/ilyfauzan", label: "GitHub" },
-  { icon: LinkedinIcon, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
-  { icon: Mail, href: "mailto:ilyfauzan@gmail.com", label: "Email" },
+  { icon: GithubIcon, href: "https://github.com/ilyfauzan/", label: "GitHub" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/znfaauzan", label: "Instagram" },
+  { icon: Mail, href: "mailto:ahmdfauzanrr@gmail.com", label: "Email" },
 ];
 
 export default function Footer() {
@@ -33,10 +32,10 @@ export default function Footer() {
               className="text-3xl font-black text-[#FCF1D0] gradient-text"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              F.
+              AF.
             </a>
             <p className="text-[#FCF1D0]/40 text-xs mt-1 tracking-wide">
-              Full Stack Developer
+              Front End Developer &amp; Tech Enthusiast
             </p>
           </div>
 
@@ -73,7 +72,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-8 pt-8 border-t border-[#22396F]/20 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[#FCF1D0]/30 text-xs">
-            © {new Date().getFullYear()} Fauzan. All rights reserved.
+            © {new Date().getFullYear()} Ahmad Fauzhan. All rights reserved.
           </p>
           <p className="text-[#FCF1D0]/30 text-xs flex items-center gap-1">
             Built with <Heart size={10} className="text-[#FCF1D0]/50" fill="currentColor" /> using Next.js & Tailwind CSS

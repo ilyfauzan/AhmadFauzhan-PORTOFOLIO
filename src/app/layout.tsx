@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Fauzan | Full Stack Developer",
+  title: "Ahmad Fauzhan | Front End Developer",
   description:
-    "Portfolio of Fauzan — Full Stack Developer & UI/UX Designer crafting beautiful digital experiences.",
-  keywords: ["portfolio", "developer", "fullstack", "react", "nextjs", "fauzan"],
+    "Portfolio of Ahmad Fauzhan — Front End Developer & Tech Enthusiast based in Makassar, Indonesia.",
+  keywords: ["portfolio", "developer", "frontend", "react", "nextjs", "Ahmad Fauzhan"],
   openGraph: {
-    title: "Fauzan | Full Stack Developer",
-    description: "Portfolio of Fauzan — Full Stack Developer & UI/UX Designer",
+    title: "Ahmad Fauzhan | Front End Developer",
+    description: "Portfolio of Ahmad Fauzhan — Front End Developer & Tech Enthusiast",
     type: "website",
   },
 };

@@ -6,7 +6,12 @@ import { ArrowDown, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "../SocialIcons";
 import ParticlesBackground from "../ParticlesBackground";
 
-const roles = ["Full Stack Developer", "UI/UX Designer", "Problem Solver", "Open Source Enthusiast"];
+const roles = [
+  "Front End Developer",
+  "Tech Enthusiast",
+  "Web Developer",
+  "Information Systems Student",
+];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -32,10 +37,9 @@ export default function Hero() {
   }, [displayText, isDeleting, roleIndex]);
 
   const socialLinks = [
-    { icon: GithubIcon, href: "https://github.com/ilyfauzan", label: "GitHub" },
-    { icon: LinkedinIcon, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
-    { icon: Mail, href: "mailto:ilyfauzan@gmail.com", label: "Email" },
+    { icon: GithubIcon, href: "https://github.com/ilyfauzan/", label: "GitHub" },
+    { icon: InstagramIcon, href: "https://www.instagram.com/znfaauzan", label: "Instagram" },
+    { icon: Mail, href: "mailto:ahmdfauzanrr@gmail.com", label: "Email" },
   ];
 
   return (
@@ -99,10 +103,10 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 0.7 }}
         >
           <h1
-            className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight mb-2"
+            className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight mb-2 break-words"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            <span className="gradient-text">AHMAD FAUZAN</span>
+            <span className="gradient-text">AHMAD FAUZHAN</span>
           </h1>
         </motion.div>
 
@@ -123,10 +127,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-[#FCF1D0]/50 text-sm sm:text-base max-w-lg mx-auto mb-10 leading-relaxed"
+          className="text-[#FCF1D0]/60 text-sm sm:text-base max-w-lg mx-auto mb-10 leading-relaxed"
         >
-          Crafting seamless digital experiences where elegant design meets powerful functionality.
-          Let&apos;s build something extraordinary together.
+          Front End Developer &amp; Tech Enthusiast based in Makassar, Sulawesi Selatan.
+          Passionate about building responsive, modern, and user-friendly web solutions.
         </motion.p>
 
         <motion.div
@@ -137,18 +141,14 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="group relative px-8 py-3.5 bg-[#FCF1D0] text-[#010736] font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(252,241,208,0.3)]"
+            className="px-8 py-3.5 bg-[#FCF1D0] text-[#010736] font-semibold rounded-full hover:bg-[#22396F] hover:text-[#FCF1D0] transition-all duration-300 hover:shadow-[0_0_25px_rgba(252,241,208,0.35)] hover:-translate-y-0.5"
           >
-            <span className="relative z-10">View My Work</span>
-            <div className="absolute inset-0 bg-[#22396F] translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-            <span className="absolute inset-0 flex items-center justify-center text-[#FCF1D0] translate-x-full group-hover:translate-x-0 transition-transform duration-300 font-semibold">
-              View My Work
-            </span>
+            View My Work
           </a>
           <a
             href="/cv.pdf"
             download
-            className="px-8 py-3.5 border border-[#FCF1D0]/30 text-[#FCF1D0] font-semibold rounded-full hover:border-[#FCF1D0] hover:bg-[#FCF1D0]/5 transition-all duration-300"
+            className="px-8 py-3.5 border border-[#FCF1D0]/40 text-[#FCF1D0] font-semibold rounded-full hover:border-[#FCF1D0] hover:bg-[#FCF1D0]/10 transition-all duration-300 hover:-translate-y-0.5"
           >
             Download CV
           </a>

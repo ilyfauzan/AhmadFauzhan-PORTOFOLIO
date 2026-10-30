@@ -5,53 +5,42 @@ import Reveal from "../Reveal";
 const experiences = [
   {
     type: "work",
-    role: "Senior Full Stack Developer",
-    company: "TechVision Indonesia",
-    duration: "2024 – Present",
+    role: "Coding Camp Front-End and Back-End Developer",
+    division: "TEKNOLOGI INFORMASI DAN KOMUNIKASI",
+    company: "Dicoding x DBS Foundation",
+    duration: "Februari 2025 – Juni 2025",
     description:
-      "Leading a team of 5 developers in building scalable microservices architecture. Architected and deployed a high-traffic platform serving 50k+ daily active users using Next.js, Node.js, and AWS.",
-    tags: ["Next.js", "AWS", "PostgreSQL", "Docker"],
-    icon: "💼",
-  },
-  {
-    type: "work",
-    role: "Full Stack Developer",
-    company: "Digital Nusa Agency",
-    duration: "2023 – 2024",
-    description:
-      "Developed and maintained 10+ client web applications. Improved performance by 40% through code optimization and CDN implementation. Collaborated closely with designers for pixel-perfect UI delivery.",
-    tags: ["React", "Node.js", "MongoDB", "Tailwind"],
-    icon: "🚀",
+      "Coding Camp Front-End and Back-End Developer merupakan program pelatihan intensif yang diselenggarakan oleh Dicoding bersama DBS Foundation untuk mengembangkan keterampilan talenta digital Indonesia di bidang rekayasa perangkat lunak. Program ini dirancang untuk membekali peserta dengan kompetensi komprehensif dalam pengembangan aplikasi web modern, mulai dari perancangan antarmuka pengguna (front-end) hingga logika sisi server dan basis data (back-end) sesuai standar kebutuhan industri teknologi.",
+    tags: [
+      "Front-End",
+      "Back-End",
+      "Dicoding",
+      "DBS Foundation",
+      "Software Engineering",
+    ],
+    icon: "🏛️",
   },
   {
     type: "education",
-    role: "Bachelor of Informatics Engineering",
-    company: "Universitas XYZ",
-    duration: "2019 – 2023",
+    role: "S1 Sistem Informasi",
+    division: "FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM",
+    company: "Universitas Hasanuddin (Unhas)",
+    duration: "2022 – 2026",
     description:
-      "Graduated with honors (GPA 3.85/4.00). Thesis on Machine Learning-based Web Performance Optimization. Active member of Programming Club and won 2nd place in National Programming Competition.",
-    tags: ["Algorithms", "Machine Learning", "Web Dev"],
+      "Menempuh pendidikan sarjana Sistem Informasi dengan IPK 3.78. Aktif mengembangkan keterampilan di bidang pemrograman web, machine learning, basis data, dan analisis sistem informasi.",
+    tags: ["Sistem Informasi", "IPK 3.78", "Unhas", "Makassar"],
     icon: "🎓",
   },
   {
     type: "work",
-    role: "Frontend Developer (Intern)",
-    company: "StartupHub Indonesia",
-    duration: "2022 – 2023",
+    role: "Front End & Web Developer",
+    division: "PORTFOLIO & PROJECTS",
+    company: "Personal & Academic Projects",
+    duration: "2022 – Present",
     description:
-      "Built responsive UI components and integrated REST APIs. Contributed to an internal design system used across 3 products. Gained hands-on experience in agile development workflows.",
-    tags: ["React", "TypeScript", "Figma", "REST API"],
-    icon: "⚡",
-  },
-  {
-    type: "achievement",
-    role: "Open Source Contributor",
-    company: "Various Projects",
-    duration: "2021 – Present",
-    description:
-      "Actively contributing to open-source projects on GitHub. Published 2 npm packages with 3000+ combined weekly downloads. Maintaining a CLI scaffolding tool for Next.js projects.",
-    tags: ["Open Source", "npm", "CLI", "Community"],
-    icon: "🌟",
+      "Merancang dan mengembangkan berbagai aplikasi web interaktif, sistem deteksi dini online grooming berbasis AI, integrasi API cuaca real-time, landing page NFT, dan platform rekomendasi wisata.",
+    tags: ["HTML/CSS/JS", "Python", "API", "Laravel", "MySQL"],
+    icon: "💻",
   },
 ];
 
@@ -120,15 +109,16 @@ export default function Experience() {
                         <span className="text-2xl">{exp.icon}</span>
                         <div>
                           <h3 className="font-semibold text-[#FCF1D0] text-base">{exp.role}</h3>
+                          <p className="text-[#FCF1D0]/80 text-xs tracking-wider uppercase font-medium">{exp.division}</p>
                           <p className="text-[#FCF1D0]/60 text-sm">{exp.company}</p>
                         </div>
                       </div>
-                      <span className="text-xs text-[#FCF1D0]/40 font-mono bg-[#22396F]/20 px-3 py-1 rounded-full">
+                      <span className="text-xs text-[#FCF1D0]/60 font-mono bg-[#22396F]/30 border border-[#22396F]/40 px-3 py-1 rounded-full">
                         {exp.duration}
                       </span>
                     </div>
 
-                    <p className="text-[#FCF1D0]/60 text-sm leading-relaxed mb-4">
+                    <p className="text-[#FCF1D0]/70 text-sm leading-relaxed mb-4">
                       {exp.description}
                     </p>
 

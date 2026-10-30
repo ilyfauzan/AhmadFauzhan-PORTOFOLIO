@@ -54,7 +54,7 @@ export default function Navbar() {
           style={{ fontFamily: "'Playfair Display', serif" }}
           whileHover={{ scale: 1.05 }}
         >
-          <span className="text-[#FCF1D0]">F</span>
+          <span className="text-[#FCF1D0]">AF</span>
           <span className="text-[#22396F]">.</span>
         </motion.a>
 

@@ -29,27 +29,26 @@ export default function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "ilyfauzan@gmail.com",
-      href: "mailto:ilyfauzan@gmail.com",
+      value: "ahmdfauzanrr@gmail.com",
+      href: "mailto:ahmdfauzanrr@gmail.com",
     },
     {
       icon: Phone,
-      label: "Phone",
-      value: "+62 812 3456 7890",
-      href: "tel:+6281234567890",
+      label: "Phone / WhatsApp",
+      value: "081243096168",
+      href: "https://wa.me/6281243096168",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Indonesia",
+      value: "Makassar, Sulawesi Selatan",
       href: null,
     },
   ];
 
   const socials = [
-    { icon: GithubIcon, href: "https://github.com/ilyfauzan", label: "GitHub" },
-    { icon: LinkedinIcon, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
+    { icon: GithubIcon, href: "https://github.com/ilyfauzan/", label: "GitHub" },
+    { icon: InstagramIcon, href: "https://www.instagram.com/znfaauzan", label: "Instagram" },
   ];
 
   return (
