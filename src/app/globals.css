@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --color-deep-navy: #010736;
+  --color-dark-navy: #0D1C42;
+  --color-medium-navy: #22396F;
+  --color-cream: #FCF1D0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #010736;
+  color: #FCF1D0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #010736;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22396F;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FCF1D0;
+}
+
+::selection {
+  background: #22396F;
+  color: #FCF1D0;
+}
+
+* {
+  cursor: none !important;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FCF1D0 0%, #22396F 50%, #FCF1D0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.glass {
+  background: rgba(13, 28, 66, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 57, 111, 0.5);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
