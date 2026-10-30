@@ -42,10 +42,6 @@ body {
   color: #FCF1D0;
 }
 
-* {
-  cursor: none !important;
-}
-
 .gradient-text {
   background: linear-gradient(135deg, #FCF1D0 0%, #22396F 50%, #FCF1D0 100%);
   background-size: 200% auto;
