@@ -1,161 +1,80 @@
 "use client";
 
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import Reveal from "../Reveal";
-
-interface Skill {
-  name: string;
-  icon: string;
-  level: number;
+interface SkillCategory {
+  category: string;
+  description: string;
+  items: { name: string; focus: string }[];
 }
 
-const programmingSkills: Skill[] = [
-  { name: "HTML & CSS", icon: "🌐", level: 95 },
-  { name: "JavaScript", icon: "💛", level: 90 },
-  { name: "Python", icon: "🐍", level: 85 },
-  { name: "Java", icon: "☕", level: 80 },
-  { name: "MySQL", icon: "🐬", level: 82 },
-  { name: "Git & Version Control", icon: "🐙", level: 88 },
-];
-
-const officeTools: Skill[] = [
-  { name: "VS Code", icon: "💻", level: 95 },
-  { name: "Microsoft Word", icon: "📝", level: 92 },
-  { name: "Microsoft Excel", icon: "📊", level: 88 },
-  { name: "Microsoft PowerPoint", icon: "📽️", level: 90 },
-  { name: "Google Docs & Sheets", icon: "📑", level: 92 },
-  { name: "Google Slides", icon: "🖼️", level: 90 },
-];
-
-function SkillBar({ skill, delay }: { skill: Skill; delay: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <div
-      ref={ref}
-      className="group p-4 bg-[#0D1C42]/60 rounded-xl border border-[#22396F]/20 hover:border-[#22396F]/60 transition-all duration-300 hover:-translate-y-0.5"
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
-          <span className="text-xl">{skill.icon}</span>
-          <span className="text-[#FCF1D0] text-sm font-medium">{skill.name}</span>
-        </div>
-        <span className="text-[#FCF1D0]/50 text-xs font-mono">{skill.level}%</span>
-      </div>
-      <div className="h-1.5 bg-[#22396F]/20 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-[#22396F] to-[#FCF1D0]/80 rounded-full transition-all duration-1000 ease-out"
-          style={{
-            width: isInView ? `${skill.level}%` : "0%",
-            transitionDelay: `${delay}ms`,
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
-const tools = [
-  { name: "Git", icon: "🐙" },
-  { name: "VS Code", icon: "💻" },
-  { name: "MySQL", icon: "🐬" },
-  { name: "JavaScript", icon: "💛" },
-  { name: "Python", icon: "🐍" },
-  { name: "Java", icon: "☕" },
-  { name: "MS Word", icon: "📝" },
-  { name: "MS Excel", icon: "📊" },
-  { name: "MS PowerPoint", icon: "📽️" },
-  { name: "Google Docs", icon: "📄" },
-  { name: "Google Sheets", icon: "📈" },
-  { name: "Google Slides", icon: "📑" },
+const skillCategories: SkillCategory[] = [
+  {
+    category: "Bahasa Pemrograman & Web",
+    description: "Bahasa utama yang digunakan untuk membangun logika antarmuka dan backend.",
+    items: [
+      { name: "HTML5 & CSS3", focus: "Semantic markup, responsive layout, modern styling" },
+      { name: "JavaScript", focus: "ES6+, DOM manipulation, asynchronous flow" },
+      { name: "Python", focus: "Machine learning integration, script processing" },
+      { name: "Java", focus: "Object-oriented programming, data structures" },
+    ],
+  },
+  {
+    category: "Framework & Database",
+    description: "Framework pendukung arsitektur web dan manajemen data relasional.",
+    items: [
+      { name: "Next.js & React", focus: "Component architecture, routing, UI state" },
+      { name: "Tailwind CSS", focus: "Utility-first design system, responsive styling" },
+      { name: "Laravel", focus: "Full-stack MVC development, routing, backend services" },
+      { name: "MySQL", focus: "Relational database design, query optimization, CRUD" },
+    ],
+  },
+  {
+    category: "Alat Pengembangan & Produktivitas",
+    description: "Software dan environment kerja harian untuk kolaborasi dan dokumentasi.",
+    items: [
+      { name: "Git & GitHub", focus: "Version control, branching, repository management" },
+      { name: "Visual Studio Code", focus: "Primary code editor, debugging, extension ecosystem" },
+      { name: "Microsoft Office Suite", focus: "Word, Excel, PowerPoint untuk pelaporan dan data" },
+      { name: "Google Workspace", focus: "Docs, Sheets, Slides untuk kolaborasi daring" },
+    ],
+  },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-[#0D1C42] relative overflow-hidden">
-      {/* BG decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#22396F] to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#22396F] to-transparent" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <Reveal className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-[#FCF1D0]/50 mb-3">What I can do</p>
+    <section id="skills" className="py-20 bg-[#010736] border-b border-[#22396F]/30">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-12">
+          <p className="text-xs uppercase tracking-widest text-[#FCF1D0]/60 mb-2 font-mono">Kompetensi Teknis</p>
           <h2
-            className="text-4xl sm:text-5xl font-bold text-[#FCF1D0]"
+            className="text-3xl sm:text-4xl font-bold text-[#FCF1D0]"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            My Skills
+            Keahlian &amp; Perangkat
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-4">
-            <div className="h-px w-12 bg-[#22396F]" />
-            <div className="w-2 h-2 rounded-full bg-[#FCF1D0]" />
-            <div className="h-px w-12 bg-[#22396F]" />
-          </div>
-        </Reveal>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Programming & Tech */}
-          <div>
-            <Reveal delay={0.1}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-[#22396F]/30 border border-[#22396F]/50 flex items-center justify-center text-sm">
-                  💻
-                </div>
-                <h3 className="text-lg font-semibold text-[#FCF1D0]">Programming &amp; Tech</h3>
-              </div>
-            </Reveal>
-            <div className="space-y-3">
-              {programmingSkills.map((skill, i) => (
-                <Reveal key={skill.name} delay={0.1 + i * 0.05}>
-                  <SkillBar skill={skill} delay={i * 100} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          {/* Tools & Productivity */}
-          <div>
-            <Reveal delay={0.2}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-[#22396F]/30 border border-[#22396F]/50 flex items-center justify-center text-sm">
-                  ⚙️
-                </div>
-                <h3 className="text-lg font-semibold text-[#FCF1D0]">Tools &amp; Productivity</h3>
-              </div>
-            </Reveal>
-            <div className="space-y-3">
-              {officeTools.map((skill, i) => (
-                <Reveal key={skill.name} delay={0.2 + i * 0.05}>
-                  <SkillBar skill={skill} delay={i * 100} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Tools */}
-        <Reveal delay={0.3} className="mt-16">
-          <h3 className="text-center text-lg font-semibold text-[#FCF1D0]/70 mb-8 tracking-wider uppercase text-sm">
-            Tools & Technologies
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {tools.map((tool, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 px-4 py-2 glass rounded-full border border-[#22396F]/30 hover:border-[#FCF1D0]/30 transition-all duration-300 hover:-translate-y-1 text-[#FCF1D0]/80 hover:text-[#FCF1D0] text-sm"
-              >
-                <span>{tool.icon}</span>
-                <span>{tool.name}</span>
+        <div className="grid md:grid-cols-3 gap-6">
+          {skillCategories.map((cat) => (
+            <div
+              key={cat.category}
+              className="p-6 rounded-xl bg-[#0D1C42]/50 border border-[#22396F]/40 flex flex-col justify-between"
+            >
+              <div>
+                <h3 className="text-base font-semibold text-[#FCF1D0] mb-2">{cat.category}</h3>
+                <p className="text-xs text-[#FCF1D0]/70 mb-5 leading-relaxed">{cat.description}</p>
+
+                <ul className="space-y-3">
+                  {cat.items.map((item) => (
+                    <li key={item.name} className="pb-2.5 border-b border-[#22396F]/25 last:border-none last:pb-0">
+                      <p className="text-sm font-medium text-[#FCF1D0]">{item.name}</p>
+                      <p className="text-xs text-[#FCF1D0]/60 mt-0.5">{item.focus}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
-          </div>
-        </Reveal>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

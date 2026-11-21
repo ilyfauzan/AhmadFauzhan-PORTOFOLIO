@@ -1,199 +1,84 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
-import Reveal from "../Reveal";
-import { Download, Code2, Palette, Server, Users } from "lucide-react";
-
-const stats = [
-  { value: 3.78, suffix: "", label: "IPK / GPA (Unhas)" },
-  { value: 6, suffix: "+", label: "Featured Projects" },
-  { value: 4, suffix: " Years", label: "Academic Journey" },
-  { value: 100, suffix: "%", label: "Passion & Dedication" },
-];
-
-const traits = [
-  "Front End Specialist",
-  "Tech Enthusiast",
-  "Sistem Informasi Unhas",
-  "Continuous Learner",
-  "Problem Solver",
-  "Detail-Oriented",
-];
-
-function CountUp({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const isFloat = target % 1 !== 0;
-
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const steps = 50;
-    const step = target / steps;
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(isFloat ? Number(start.toFixed(2)) : Math.floor(start));
-      }
-    }, 30);
-    return () => clearInterval(timer);
-  }, [isInView, target, isFloat]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {count}
-      {suffix}
-    </span>
-  );
-}
+import { Download } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 bg-[#010736] overflow-hidden">
-      {/* BG decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#0D1C42]/30 to-transparent pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section header */}
-        <Reveal className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-[#FCF1D0]/50 mb-3">Get to know me</p>
+    <section id="about" className="py-20 bg-[#0D1C42]/50 border-t border-b border-[#22396F]/30">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-12">
+          <p className="text-xs uppercase tracking-widest text-[#FCF1D0]/60 mb-2 font-mono">Profil Singkat</p>
           <h2
-            className="text-4xl sm:text-5xl font-bold text-[#FCF1D0]"
+            className="text-3xl sm:text-4xl font-bold text-[#FCF1D0]"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            About Me
+            Tentang Saya
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-4">
-            <div className="h-px w-12 bg-[#22396F]" />
-            <div className="w-2 h-2 rounded-full bg-[#FCF1D0]" />
-            <div className="h-px w-12 bg-[#22396F]" />
-          </div>
-        </Reveal>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left: Text */}
-          <div className="space-y-6">
-            <Reveal delay={0.1}>
-              <h3
-                className="text-2xl sm:text-3xl font-semibold text-[#FCF1D0]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Hi! I&apos;m{" "}
-                <span className="text-[#FCF1D0] underline decoration-[#22396F] underline-offset-4">
-                  Ahmad Fauzhan
-                </span>
-                , a passionate Front End Developer.
-              </h3>
-            </Reveal>
+        <div className="grid md:grid-cols-12 gap-10 items-start">
+          {/* Left: Bio info */}
+          <div className="md:col-span-7 space-y-5 text-[#FCF1D0]/80 leading-relaxed text-sm sm:text-base">
+            <p>
+              Halo, saya <span className="text-[#FCF1D0] font-semibold">Ahmad Fauzhan</span>, mahasiswa S1 Sistem Informasi Universitas Hasanuddin angkatan 2022 (IPK 3.78) yang berdomisili di Makassar, Sulawesi Selatan.
+            </p>
+            <p>
+              Fokus utama saya adalah perancangan antarmuka web (front-end development), integrasi REST API, dan perpaduan antarmuka dengan teknologi kecerdasan buatan serta sistem berbasis data.
+            </p>
+            <p>
+              Saya menyukai eksplorasi teknologi baru, menulis kode yang terstruktur, dan mengubah kebutuhan pengguna menjadi produk web fungsional yang mudah digunakan.
+            </p>
 
-            <Reveal delay={0.2}>
-              <p className="text-[#FCF1D0]/70 leading-relaxed text-base">
-                Saya mahasiswa S1 Sistem Informasi di Universitas Hasanuddin (2022 – 2026) dengan IPK 3.78, berbasis di Makassar, Sulawesi Selatan. Saya memiliki ketertarikan mendalam dalam dunia front-end development, integrasi API, dan teknologi modern.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <p className="text-[#FCF1D0]/70 leading-relaxed text-base">
-                Berpengalaman membangun beragam proyek web mulai dari landing page, sistem berbasis cuaca terintegrasi Machine Learning, web aplikasi administratif, platform rekomendasi pariwisata, hingga sistem deteksi dini online grooming berbasis AI.
-              </p>
-            </Reveal>
-
-            {/* Traits */}
-            <Reveal delay={0.4}>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {traits.map((trait, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1.5 text-xs font-medium bg-[#0D1C42] border border-[#22396F]/50 text-[#FCF1D0]/80 rounded-full hover:border-[#FCF1D0]/50 hover:text-[#FCF1D0] transition-all duration-300"
-                  >
-                    {trait}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.5}>
+            <div className="pt-3">
               <a
                 href="/cv.pdf"
                 download
-                className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-[#FCF1D0] text-[#010736] font-semibold rounded-full hover:bg-[#22396F] hover:text-[#FCF1D0] transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FCF1D0] text-[#010736] text-sm font-semibold rounded-lg hover:bg-[#22396F] hover:text-[#FCF1D0] transition-colors"
               >
-                <Download size={16} className="group-hover:animate-bounce" />
-                Download CV
+                <Download size={15} />
+                Unduh Curriculum Vitae
               </a>
-            </Reveal>
+            </div>
           </div>
 
-          {/* Right: Visual */}
-          <Reveal delay={0.3} direction="right">
-            <div className="relative flex items-center justify-center">
-              {/* Rotating ring */}
-              <div className="absolute w-72 h-72 rounded-full border border-dashed border-[#22396F]/40 animate-spin-slow" />
-              <div className="absolute w-56 h-56 rounded-full border border-[#22396F]/20" />
-
-              {/* Center card with photo */}
-              <div className="relative w-56 sm:w-64 h-72 sm:h-80 bg-gradient-to-b from-[#0D1C42] to-[#010736] rounded-3xl border border-[#22396F]/50 overflow-hidden shadow-[0_0_60px_rgba(34,57,111,0.4)] group hover:border-[#FCF1D0]/40 transition-all duration-500">
-                <img
-                  src="/fotosayabaru.png"
-                  alt="Ahmad Fauzhan"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#010736] via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-3 left-0 right-0 text-center px-2">
-                  <p className="text-sm font-semibold text-[#FCF1D0]">Ahmad Fauzhan</p>
-                  <p className="text-[#FCF1D0]/60 text-xs tracking-wider uppercase">Front End Developer</p>
-                </div>
-              </div>
-
-              {/* Floating badges - hidden on very small screens, visible on sm+ */}
-              <div className="hidden sm:flex absolute -top-4 -right-4 glass rounded-xl px-3 py-2 animate-float">
-                <div className="flex items-center gap-2">
-                  <Code2 size={14} className="text-[#FCF1D0]" />
-                  <span className="text-[#FCF1D0] text-xs font-medium">Clean Code</span>
-                </div>
-              </div>
-
-              <div className="hidden sm:flex absolute -bottom-4 -left-4 glass rounded-xl px-3 py-2 animate-float" style={{ animationDelay: "1s" }}>
-                <div className="flex items-center gap-2">
-                  <Palette size={14} className="text-[#FCF1D0]" />
-                  <span className="text-[#FCF1D0] text-xs font-medium">UI/UX Design</span>
-                </div>
-              </div>
-
-              <div className="hidden lg:flex absolute top-1/2 -right-12 glass rounded-xl px-3 py-2 animate-float" style={{ animationDelay: "2s" }}>
-                <div className="flex items-center gap-2">
-                  <Server size={14} className="text-[#FCF1D0]" />
-                  <span className="text-[#FCF1D0] text-xs font-medium">Web Dev</span>
-                </div>
-              </div>
-
-              <div className="hidden lg:flex absolute top-1/2 -left-12 glass rounded-xl px-3 py-2 animate-float" style={{ animationDelay: "3s" }}>
-                <div className="flex items-center gap-2">
-                  <Users size={14} className="text-[#FCF1D0]" />
-                  <span className="text-[#FCF1D0] text-xs font-medium">Team Player</span>
-                </div>
+          {/* Right: Foto asli */}
+          <div className="md:col-span-5 flex justify-center md:justify-end">
+            <div className="w-56 sm:w-64 rounded-xl border border-[#22396F]/60 bg-[#010736] p-3 shadow-md">
+              <img
+                src="/fotosayabaru.png"
+                alt="Ahmad Fauzhan"
+                className="w-full h-72 object-cover object-top rounded-lg bg-[#0D1C42]"
+              />
+              <div className="pt-3 text-center">
+                <p className="text-sm font-semibold text-[#FCF1D0]">Ahmad Fauzhan</p>
+                <p className="text-xs text-[#FCF1D0]/60 font-mono mt-0.5">S1 Sistem Informasi UNHAS</p>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
-          {stats.map((stat, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="text-center p-6 bg-[#0D1C42]/60 rounded-2xl border border-[#22396F]/30 hover:border-[#22396F] transition-all duration-300 group hover:-translate-y-1">
-                <div className="text-3xl sm:text-4xl font-black text-[#FCF1D0] gradient-text mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  <CountUp target={stat.value} suffix={stat.suffix} />
-                </div>
-                <p className="text-[#FCF1D0]/50 text-xs sm:text-sm tracking-wide">{stat.label}</p>
-              </div>
-            </Reveal>
-          ))}
+        {/* Fact Sheet: Info akademik nyata, bukan counter palsu */}
+        <div className="mt-14 pt-8 border-t border-[#22396F]/30 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="p-4 rounded-lg bg-[#010736]/60 border border-[#22396F]/40">
+            <p className="text-xs text-[#FCF1D0]/60 uppercase font-mono">Pendidikan</p>
+            <p className="text-base font-semibold text-[#FCF1D0] mt-1">S1 Sistem Informasi</p>
+            <p className="text-xs text-[#FCF1D0]/70 mt-0.5">Universitas Hasanuddin</p>
+          </div>
+          <div className="p-4 rounded-lg bg-[#010736]/60 border border-[#22396F]/40">
+            <p className="text-xs text-[#FCF1D0]/60 uppercase font-mono">Indeks Prestasi Kumulatif</p>
+            <p className="text-xl font-bold text-[#FCF1D0] mt-1">3.78</p>
+            <p className="text-xs text-[#FCF1D0]/70 mt-0.5">Skala 4.00</p>
+          </div>
+          <div className="p-4 rounded-lg bg-[#010736]/60 border border-[#22396F]/40">
+            <p className="text-xs text-[#FCF1D0]/60 uppercase font-mono">Tahun Angkatan</p>
+            <p className="text-base font-semibold text-[#FCF1D0] mt-1">2022 &ndash; 2026</p>
+            <p className="text-xs text-[#FCF1D0]/70 mt-0.5">Mahasiswa Aktif</p>
+          </div>
+          <div className="p-4 rounded-lg bg-[#010736]/60 border border-[#22396F]/40">
+            <p className="text-xs text-[#FCF1D0]/60 uppercase font-mono">Domisili</p>
+            <p className="text-base font-semibold text-[#FCF1D0] mt-1">Makassar</p>
+            <p className="text-xs text-[#FCF1D0]/70 mt-0.5">Sulawesi Selatan</p>
+          </div>
         </div>
       </div>
     </section>

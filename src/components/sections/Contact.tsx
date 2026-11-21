@@ -17,8 +17,8 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // Simulate send
-    await new Promise((r) => setTimeout(r, 1500));
+    // Submit handler
+    await new Promise((r) => setTimeout(r, 1200));
     setSending(false);
     setSent(true);
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -27,123 +27,83 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: Mail,
       label: "Email",
       value: "ahmdfauzanrr@gmail.com",
       href: "mailto:ahmdfauzanrr@gmail.com",
     },
     {
-      icon: Phone,
-      label: "Phone / WhatsApp",
+      label: "Telepon / WhatsApp",
       value: "081243096168",
       href: "https://wa.me/6281243096168",
     },
     {
-      icon: MapPin,
-      label: "Location",
-      value: "Makassar, Sulawesi Selatan",
+      label: "Lokasi",
+      value: "Makassar, Sulawesi Selatan, Indonesia",
       href: null,
+    },
+    {
+      label: "GitHub",
+      value: "github.com/ilyfauzan",
+      href: "https://github.com/ilyfauzan/",
     },
   ];
 
-  const socials = [
-    { icon: GithubIcon, href: "https://github.com/ilyfauzan/", label: "GitHub" },
-    { icon: InstagramIcon, href: "https://www.instagram.com/znfaauzan", label: "Instagram" },
-  ];
-
   return (
-    <section id="contact" className="py-24 bg-[#010736] relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[#22396F]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#0D1C42]/30 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <Reveal className="text-center mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase text-[#FCF1D0]/50 mb-3">Let&apos;s talk</p>
+    <section id="contact" className="py-20 bg-[#0D1C42]/50 border-b border-[#22396F]/30">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-12">
+          <p className="text-xs uppercase tracking-widest text-[#FCF1D0]/60 mb-2 font-mono">Komunikasi &amp; Kolaborasi</p>
           <h2
-            className="text-4xl sm:text-5xl font-bold text-[#FCF1D0]"
+            className="text-3xl sm:text-4xl font-bold text-[#FCF1D0]"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Get In Touch
+            Hubungi Saya
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-4">
-            <div className="h-px w-12 bg-[#22396F]" />
-            <div className="w-2 h-2 rounded-full bg-[#FCF1D0]" />
-            <div className="h-px w-12 bg-[#22396F]" />
-          </div>
-          <p className="text-[#FCF1D0]/50 mt-6 text-sm max-w-md mx-auto leading-relaxed">
-            Have a project in mind or want to collaborate? I&apos;d love to hear from you.
-            Send me a message and I&apos;ll get back to you within 24 hours.
+          <p className="text-[#FCF1D0]/70 text-sm mt-3 max-w-xl leading-relaxed">
+            Terbuka untuk diskusi proyek web front-end, kolaborasi riset, maupun peluang magang dan karir profesional.
           </p>
-        </Reveal>
+        </div>
 
-        <div className="grid md:grid-cols-5 gap-12 items-start">
+        <div className="grid md:grid-cols-12 gap-10 items-start">
           {/* Left: Contact info */}
-          <div className="md:col-span-2 space-y-6">
-            <Reveal direction="left">
-              <h3 className="text-xl font-semibold text-[#FCF1D0] mb-6">
-                Contact Information
-              </h3>
-            </Reveal>
+          <div className="md:col-span-5 space-y-4">
+            <h3 className="text-base font-semibold text-[#FCF1D0] mb-4">
+              Informasi Kontak Langsung
+            </h3>
 
             {contactInfo.map((info, i) => (
-              <Reveal key={i} delay={i * 0.1} direction="left">
-                <div className="flex items-center gap-4 group">
-                  <div className="w-11 h-11 rounded-xl bg-[#0D1C42] border border-[#22396F]/40 flex items-center justify-center flex-shrink-0 group-hover:border-[#FCF1D0]/30 transition-all duration-300">
-                    <info.icon size={18} className="text-[#FCF1D0]/70" />
-                  </div>
-                  <div>
-                    <p className="text-[#FCF1D0]/40 text-xs uppercase tracking-wider">{info.label}</p>
-                    {info.href ? (
-                      <a
-                        href={info.href}
-                        className="text-[#FCF1D0] text-sm font-medium hover:text-[#FCF1D0]/70 transition-colors duration-300"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      <p className="text-[#FCF1D0] text-sm font-medium">{info.value}</p>
-                    )}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-
-            {/* Social links */}
-            <Reveal delay={0.3} direction="left">
-              <div className="mt-8 pt-6 border-t border-[#22396F]/20">
-                <p className="text-[#FCF1D0]/40 text-xs uppercase tracking-wider mb-4">
-                  Follow Me
-                </p>
-                <div className="flex gap-3">
-                  {socials.map(({ icon: Icon, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={label}
-                      className="w-10 h-10 rounded-xl bg-[#0D1C42] border border-[#22396F]/40 flex items-center justify-center text-[#FCF1D0]/60 hover:text-[#FCF1D0] hover:border-[#FCF1D0]/30 hover:-translate-y-1 transition-all duration-300"
-                    >
-                      <Icon size={16} />
-                    </a>
-                  ))}
-                </div>
+              <div key={i} className="p-3.5 rounded-lg bg-[#010736] border border-[#22396F]/40">
+                <p className="text-xs text-[#FCF1D0]/60 font-mono uppercase">{info.label}</p>
+                {info.href ? (
+                  <a
+                    href={info.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-[#FCF1D0] hover:underline mt-1 inline-block"
+                  >
+                    {info.value}
+                  </a>
+                ) : (
+                  <p className="text-sm font-medium text-[#FCF1D0] mt-1">{info.value}</p>
+                )}
               </div>
-            </Reveal>
+            ))}
           </div>
 
           {/* Right: Form */}
-          <Reveal delay={0.2} direction="right" className="md:col-span-3">
+          <div className="md:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="bg-[#0D1C42]/60 rounded-2xl border border-[#22396F]/20 p-8 space-y-5"
+              className="bg-[#010736] rounded-xl border border-[#22396F]/40 p-6 sm:p-7 space-y-4"
             >
-              <div className="grid sm:grid-cols-2 gap-5">
+              <h3 className="text-base font-semibold text-[#FCF1D0] mb-2">
+                Kirim Pesan
+              </h3>
+
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs text-[#FCF1D0]/50 uppercase tracking-wider mb-2">
-                    Name
+                  <label className="block text-xs font-mono text-[#FCF1D0]/70 mb-1.5">
+                    Nama Lengkap
                   </label>
                   <input
                     type="text"
@@ -151,13 +111,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="John Doe"
-                    className="w-full px-4 py-3 bg-[#010736] border border-[#22396F]/30 rounded-xl text-[#FCF1D0] placeholder-[#FCF1D0]/20 text-sm focus:outline-none focus:border-[#FCF1D0]/50 transition-all duration-300"
+                    placeholder="Nama Anda"
+                    className="w-full px-3.5 py-2.5 bg-[#0D1C42] border border-[#22396F]/50 rounded-lg text-[#FCF1D0] placeholder-[#FCF1D0]/30 text-sm focus:outline-none focus:border-[#FCF1D0]/70 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-[#FCF1D0]/50 uppercase tracking-wider mb-2">
-                    Email
+                  <label className="block text-xs font-mono text-[#FCF1D0]/70 mb-1.5">
+                    Alamat Email
                   </label>
                   <input
                     type="email"
@@ -165,15 +125,15 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="john@email.com"
-                    className="w-full px-4 py-3 bg-[#010736] border border-[#22396F]/30 rounded-xl text-[#FCF1D0] placeholder-[#FCF1D0]/20 text-sm focus:outline-none focus:border-[#FCF1D0]/50 transition-all duration-300"
+                    placeholder="email@domain.com"
+                    className="w-full px-3.5 py-2.5 bg-[#0D1C42] border border-[#22396F]/50 rounded-lg text-[#FCF1D0] placeholder-[#FCF1D0]/30 text-sm focus:outline-none focus:border-[#FCF1D0]/70 transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs text-[#FCF1D0]/50 uppercase tracking-wider mb-2">
-                  Subject
+                <label className="block text-xs font-mono text-[#FCF1D0]/70 mb-1.5">
+                  Subjek
                 </label>
                 <input
                   type="text"
@@ -181,50 +141,35 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="Project collaboration"
-                  className="w-full px-4 py-3 bg-[#010736] border border-[#22396F]/30 rounded-xl text-[#FCF1D0] placeholder-[#FCF1D0]/20 text-sm focus:outline-none focus:border-[#FCF1D0]/50 transition-all duration-300"
+                  placeholder="Subjek keperluan / proyek"
+                  className="w-full px-3.5 py-2.5 bg-[#0D1C42] border border-[#22396F]/50 rounded-lg text-[#FCF1D0] placeholder-[#FCF1D0]/30 text-sm focus:outline-none focus:border-[#FCF1D0]/70 transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs text-[#FCF1D0]/50 uppercase tracking-wider mb-2">
-                  Message
+                <label className="block text-xs font-mono text-[#FCF1D0]/70 mb-1.5">
+                  Pesan
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  placeholder="Tell me about your project..."
-                  className="w-full px-4 py-3 bg-[#010736] border border-[#22396F]/30 rounded-xl text-[#FCF1D0] placeholder-[#FCF1D0]/20 text-sm focus:outline-none focus:border-[#FCF1D0]/50 transition-all duration-300 resize-none"
+                  rows={4}
+                  placeholder="Tuliskan pesan atau kebutuhan Anda..."
+                  className="w-full px-3.5 py-2.5 bg-[#0D1C42] border border-[#22396F]/50 rounded-lg text-[#FCF1D0] placeholder-[#FCF1D0]/30 text-sm focus:outline-none focus:border-[#FCF1D0]/70 transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={sending || sent}
-                className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#FCF1D0] text-[#010736] font-semibold rounded-xl hover:bg-[#22396F] hover:text-[#FCF1D0] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full py-3 bg-[#FCF1D0] text-[#010736] text-sm font-semibold rounded-lg hover:bg-[#22396F] hover:text-[#FCF1D0] transition-colors disabled:opacity-60"
               >
-                {sent ? (
-                  <>
-                    <CheckCircle size={18} />
-                    Message Sent!
-                  </>
-                ) : sending ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-[#010736]/30 border-t-[#010736] rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    Send Message
-                  </>
-                )}
+                {sent ? "Pesan Terkirim!" : sending ? "Mengirimkan..." : "Kirimkan Pesan"}
               </button>
             </form>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
